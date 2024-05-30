@@ -38,4 +38,14 @@ describe('Game', () => {
         game.currentSequence.push('wrongColor');
         game.finishGame();
     });
+
+    test('lampStateChange', () => {
+        game._gamePlay = true;
+        game.lampStateChange("orange", true);
+        console.log(game._currentSequence)
+        expect(game._currentSequence.includes("orange")).toBeTruthy();
+        game.lampStateChange("orange", false);
+        expect(game._currentSequence.includes("orange")).toBeFalsy();
+        game._gamePlay = false;
+    });
 });

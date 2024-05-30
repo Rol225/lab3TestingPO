@@ -18,6 +18,21 @@ export class Game {
         this.buttonStart.innerHTML = 'Start';
         this.buttonStart.addEventListener('click', this.startGame.bind(this));
         this.container.appendChild(this.buttonStart);
+
+        this.bindEventListeners();
+    }
+
+    bindEventListeners(){
+        addEventListener('lampStateChange', event =>{
+            const {color, state} = event.detail;
+            this.lampStateChange(color, state);
+        });
+    }
+
+    lampStateChange(color, state){
+        if(!this.gamePlay) return;
+        if(state) this._currentSequence.push(color);
+        else this._currentSequence.pop();
     }
 
     startGame(){

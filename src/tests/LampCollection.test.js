@@ -31,4 +31,16 @@ describe('LampCollection', () => {
         lampCollection.deActiveAllLamps();
         lampCollection.lamps.forEach(lamp => expect(lamp.state).toBeFalsy());
     });
+
+    test('showSequence', () => {
+        lampCollection.showSequence();
+        lampCollection.lamps.forEach((lamp, index) => {
+            setTimeout(() => {
+                expect(lamp.state).toEqual(true);
+            }, 1000 * index);
+        });
+        setTimeout(()=>{
+            lampCollection.lamps.forEach(lamp => expect(lamp.state).toEqual(false));
+        }, 1000 * lampCollection.lamps.length + 1000);
+    });
 });

@@ -14,6 +14,19 @@ export class LampCollection {
         this.lamps?.forEach(lamp => {lamp.deActive();});
     }
 
+    showSequence(){
+        if(this.lamps.length <= 0) return;
+        const self = this;
+        this.lamps.forEach((lamp, index) => {
+            setTimeout(() => {
+                lamp.active();
+            }, 1000 * index);
+        });
+        setTimeout(()=>{
+            self.deActiveAllLamps();
+        }, 1000 * this.lamps.length);
+    }
+
     get colors(){return this._colors;}
     get lamps(){return this._lamps;}
 }

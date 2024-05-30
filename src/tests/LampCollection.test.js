@@ -43,4 +43,11 @@ describe('LampCollection', () => {
             lampCollection.lamps.forEach(lamp => expect(lamp.state).toEqual(false));
         }, 1000 * lampCollection.lamps.length + 1000);
     });
+
+    test('mixRandom', () => {
+        const originalSequence = lampCollection.getSequence();
+        lampCollection.mixRandom();
+        const mixedSequence = lampCollection.getSequence();
+        expect(mixedSequence).not.toEqual(originalSequence);
+    });
 });

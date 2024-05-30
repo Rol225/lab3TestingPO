@@ -27,6 +27,13 @@ export class LampCollection {
         }, 1000 * this.lamps.length);
     }
 
+    mixRandom() {
+        for (let i = this.lamps.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [this.lamps[i], this.lamps[j]] = [this.lamps[j], this.lamps[i]];
+        }
+    }
+
     get colors(){return this._colors;}
     get lamps(){return this._lamps;}
 }

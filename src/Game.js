@@ -22,6 +22,7 @@ export class Game {
 
     startGame(){
         this.lampCollection.deActiveAllLamps();
+        this.lampCollection.mixRandom();
         this._currentSequence = [];
         this._correctSequence = this.lampCollection.getSequence();
         this.lampCollection.showSequence();

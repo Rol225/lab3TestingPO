@@ -5,6 +5,11 @@ export class LampCollection {
     constructor() {
         this.colors?.forEach(color => {this.lamps.push(new Lamp(color));});
     }
+
+    getSequence(){
+        return this.lamps?.map(lamp => lamp.color) ?? [];
+    }
+
     get colors(){return this._colors;}
     get lamps(){return this._lamps;}
 }

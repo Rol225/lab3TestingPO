@@ -20,4 +20,9 @@ describe('LampCollection', () => {
         expect(lampCollection.lamps[1]).toBeInstanceOf(Lamp);
         expect(lampCollection.lamps[1].color).toBe('orange');
     });
+
+    test('getSequence', () => {
+        const sequence = lampCollection.getSequence();
+        expect(sequence).toEqual(lampCollection.colors);
+    });
 });

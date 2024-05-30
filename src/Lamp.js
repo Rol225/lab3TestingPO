@@ -12,16 +12,25 @@ export class Lamp {
     active(){
         this.el.classList.add('active');
         this._state = true;
+        this.postEventChange();
     }
 
     deActive(){
         this.el.classList.remove('active');
         this._state = false;
+        this.postEventChange();
     }
 
     toggle(){
         this.el.classList.toggle('active');
         this._state = !this.state;
+        this.postEventChange();
+    }
+
+    postEventChange(){
+        dispatchEvent(new CustomEvent('lampStateChange', {
+            detail: {color: this.color, state: this.state}
+        }));
     }
 
     get el(){return this._el;}

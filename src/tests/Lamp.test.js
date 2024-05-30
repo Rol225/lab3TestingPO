@@ -46,6 +46,15 @@ describe('Lamp', () => {
         lamp.color = '#00ff00';
         expect(lamp.color).toBe('#00ff00');
     });
+
+    test('postEventChange', () => {
+        lamp.active();
+        lamp.postEventChange();
+        const event = lamp.el.dispatchEvent(new CustomEvent('lampStateChange', {
+            detail: { color: '#ff0000', state: true }
+        }));
+        expect(event).toBe(true);
+    });
 });
 
 

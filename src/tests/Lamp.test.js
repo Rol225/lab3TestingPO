@@ -24,6 +24,12 @@ describe('Lamp', () => {
         expect(lamp.state).toBeTruthy();
         expect(lamp.el.classList.contains('active')).toBeTruthy();
     });
+
+    test('deActive', () => {
+        lamp.deActive();
+        expect(lamp.state).toBeFalsy();
+        expect(lamp.el.classList.contains('active')).toBeFalsy();
+    });
 });
 
 

@@ -41,6 +41,11 @@ describe('Lamp', () => {
         expect(lamp.state).toBeFalsy();
         expect(lamp.el.classList.contains('active')).toBeFalsy();
     });
+
+    test('set color', () => {
+        lamp.color = '#00ff00';
+        expect(lamp.color).toBe('#00ff00');
+    });
 });
 
 

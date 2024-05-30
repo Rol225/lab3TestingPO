@@ -8,6 +8,7 @@ export class Lamp {
         this.el.title = color;
         this.el.style.background = color;
         this.el.classList.add('lamp');
+        this.el.addEventListener("click", this.toggle.bind(this));
     }
     active(){
         this.el.classList.add('active');

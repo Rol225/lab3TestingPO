@@ -30,6 +30,17 @@ describe('Lamp', () => {
         expect(lamp.state).toBeFalsy();
         expect(lamp.el.classList.contains('active')).toBeFalsy();
     });
+
+    test('toggle', () => {
+        expect(lamp.state).toBeFalsy();
+        expect(lamp.el.classList.contains('active')).toBeFalsy();
+        lamp.toggle();
+        expect(lamp.state).toBeTruthy();
+        expect(lamp.el.classList.contains('active')).toBeTruthy();
+        lamp.toggle();
+        expect(lamp.state).toBeFalsy();
+        expect(lamp.el.classList.contains('active')).toBeFalsy();
+    });
 });
 
 

@@ -19,6 +19,11 @@ export class Lamp {
         this._state = false;
     }
 
+    toggle(){
+        this.el.classList.toggle('active');
+        this._state = !this.state;
+    }
+
     get el(){return this._el;}
     get state(){return this._state;}
     set color(value){

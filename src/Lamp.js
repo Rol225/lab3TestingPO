@@ -9,6 +9,10 @@ export class Lamp {
         this.el.style.background = color;
         this.el.classList.add('lamp');
     }
+    active(){
+        this.el.classList.add('active');
+        this._state = true;
+    }
 
     get el(){return this._el;}
     get state(){return this._state;}

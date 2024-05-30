@@ -18,6 +18,12 @@ describe('Lamp', () => {
         expect(lamp.el.classList.contains('lamp')).toBeTruthy();
         expect(lamp.el.style.background === lamp.color).toBeTruthy();
     });
+
+    test('active', () => {
+        lamp.active();
+        expect(lamp.state).toBeTruthy();
+        expect(lamp.el.classList.contains('active')).toBeTruthy();
+    });
 });
 
 

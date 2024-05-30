@@ -27,6 +27,10 @@ export class Game {
             const {color, state} = event.detail;
             this.lampStateChange(color, state);
         });
+        addEventListener('gameStateMustChange', event =>{
+            this._gamePlay = event.detail.status;
+            this.buttonStart.disabled = !this._gamePlay;
+        });
     }
 
     lampStateChange(color, state){

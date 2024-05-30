@@ -48,4 +48,15 @@ describe('Game', () => {
         expect(game._currentSequence.includes("orange")).toBeFalsy();
         game._gamePlay = false;
     });
+
+    test('bindEventListeners gameStateMustChange', () => {
+        const event = new CustomEvent('gameStateMustChange', { detail: { status: true } });
+        dispatchEvent(event);
+        expect(game.gamePlay).toBeTruthy();
+        expect(game.buttonStart.disabled).toBeFalsy();
+        event.detail.status = false;
+        dispatchEvent(event);
+        expect(game.gamePlay).toBeFalsy();
+        expect(game.buttonStart.disabled).toBeTruthy();
+    });
 });

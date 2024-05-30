@@ -27,4 +27,15 @@ describe('Game', () => {
         expect(game.correctSequence.length).toBeGreaterThan(0);
         game.lampCollection.lamps.forEach(lamp => expect(lamp.state).toBeFalsy());
     });
+
+    test('finishGame', () => {
+        game.startGame();
+        const correctSequence = game.correctSequence;
+        game._currentSequence = [...correctSequence];
+        game.finishGame();
+        expect(game.correctSequence.length).toBeGreaterThan(0);
+        expect(game.currentSequence.length).toBe(0);
+        game.currentSequence.push('wrongColor');
+        game.finishGame();
+    });
 });

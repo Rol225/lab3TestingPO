@@ -29,6 +29,13 @@ export class Game {
         this.buttonStart.disabled = true;
     }
 
+    finishGame(){
+        const self = this;
+        const result = self.correctSequence.every((element, index) => element === self.currentSequence[index]);
+        console.log(result ? "Вы прошли игру!" : "Не удача!");
+        self.startGame();
+    }
+
     get container(){return this._container;}
     get correctSequence(){return this._correctSequence;}
     get currentSequence(){return this._currentSequence;}

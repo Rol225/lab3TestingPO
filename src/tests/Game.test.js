@@ -42,7 +42,6 @@ describe('Game', () => {
     test('lampStateChange', () => {
         game._gamePlay = true;
         game.lampStateChange("orange", true);
-        console.log(game._currentSequence)
         expect(game._currentSequence.includes("orange")).toBeTruthy();
         game.lampStateChange("orange", false);
         expect(game._currentSequence.includes("orange")).toBeFalsy();

@@ -37,6 +37,8 @@ export class Game {
         if(!this.gamePlay) return;
         if(state) this._currentSequence.push(color);
         else this._currentSequence.pop();
+        if(this.currentSequence.length > 0 && this.currentSequence.length === this.correctSequence.length)
+            this.finishGame();
     }
 
     startGame(){

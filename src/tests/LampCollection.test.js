@@ -25,4 +25,10 @@ describe('LampCollection', () => {
         const sequence = lampCollection.getSequence();
         expect(sequence).toEqual(lampCollection.colors);
     });
+
+    test('deActiveAllLamps', () => {
+        lampCollection.lamps.forEach(lamp => lamp.active());
+        lampCollection.deActiveAllLamps();
+        lampCollection.lamps.forEach(lamp => expect(lamp.state).toBeFalsy());
+    });
 });

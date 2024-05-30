@@ -10,6 +10,10 @@ export class LampCollection {
         return this.lamps?.map(lamp => lamp.color) ?? [];
     }
 
+    deActiveAllLamps() {
+        this.lamps?.forEach(lamp => {lamp.deActive();});
+    }
+
     get colors(){return this._colors;}
     get lamps(){return this._lamps;}
 }
